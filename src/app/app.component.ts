@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {WordsService} from "./services/words.service";
+import {WordType} from "./data/models";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'words';
+
+  constructor(private wordService: WordsService) {
+  }
+
+
+  get nouns() {
+    return this.wordService.getNouns();
+  }
+
+  get verbs() {
+    return this.wordService.getVerbs();
+  }
+
+
 }
